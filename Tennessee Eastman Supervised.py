@@ -4,9 +4,6 @@ Created on Tue May 14 22:44:05 2019
 
 @author: Robot Hands (github.com/nvd919)
 """
-import glob
-import numpy as np
-
 # =============================================================================
 # The first hurdle to clear is getting all of the data from the 44 files loaded
 # into the model. glob.glob() will handle all files fitting a common naming
