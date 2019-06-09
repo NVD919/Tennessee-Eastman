@@ -18,7 +18,7 @@ test_data = [pd.read_csv(f, sep=' ') for f in test_files]
 
 # =============================================================================
 #   Due to the relatively small training data (490 samples per fault) I think 
-#   a K-fold is necessary per fault.
+#   a K-fold strategy is necessary per fault.
 # =============================================================================
 seed = 10
 rkf = rkf(n_splits = 5, n_repeats = 10, random_state = seed)
