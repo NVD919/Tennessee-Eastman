@@ -6,6 +6,7 @@ Created on Tue May 14 22:44:05 2019
 import pandas as pd
 import os
 from sklearn.model_selection import RepeatedKFold as rkf
+from sklearn.model_selection import train_test_split as tts
 
 DATA_FOLDER = r"E:\ML Projects\Tennessee Eastman\TE_process_dataset"
 NUM_FILES = 22
@@ -18,7 +19,11 @@ test_data = [pd.read_csv(f, sep=' ') for f in test_files]
 
 # =============================================================================
 #   Due to the relatively small training data (490 samples per fault) I think 
-#   a K-fold strategy is necessary per fault.
+#   a K-fold strategy is necessary per fault. For that matter, I think 
+#   splitting the training data to include a validation set in conjunction with
+#   the KFold may be a wise move to avoid data leakage by tuning on the given
+#   test set.
 # =============================================================================
 seed = 10
+split_size = .30
 rkf = rkf(n_splits = 5, n_repeats = 10, random_state = seed)
